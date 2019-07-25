@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-
 import {
   SocialLoginModule,
   AuthServiceConfig,
   GoogleLoginProvider,
   FacebookLoginProvider
 } from "angular-6-social-login";
-
+import { LandingComponent } from './landing/landing.component';
+import { HeaderComponent } from './header/header.component';
+import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
     [
@@ -32,14 +34,18 @@ export function getAuthServiceConfigs() {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    LandingComponent,
+    HeaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     AngularFontAwesomeModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [{
     provide: AuthServiceConfig,
