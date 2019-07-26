@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 import {
   AuthService,
   FacebookLoginProvider,
@@ -33,10 +32,16 @@ export class LoginComponent implements OnInit {
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
         console.log(socialPlatform + " sign in data : ", userData, typeof (userData));
+        console.log(userData.token);
+        localStorage.setItem('data',JSON.stringify(userData));
         this.http.post("http://localhost:2000/api/resData", userData)
           .subscribe(res => {
-            console.log(res);
+            console.log("msg from api",res);
           });
       });
+  }
+  onLogout(){
+    this.socialAuthService.signOut();
+    localStorage.clear();
   }
 }

@@ -3,18 +3,22 @@ import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './user/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   SocialLoginModule,
   AuthServiceConfig,
   GoogleLoginProvider,
   FacebookLoginProvider
 } from "angular-6-social-login";
-import { LandingComponent } from './landing/landing.component';
-import { HeaderComponent } from './header/header.component';
+import { LandingComponent } from './other/landing/landing.component';
+import { HeaderComponent } from './shared/header/header.component';
 import { RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './shared/profile/profile.component';
+import { PageNotFoundComponent } from './other/page-not-found/page-not-found.component';
+import { UserComponent } from './user/user.component';
+import { AdminComponent } from './admin/admin.component';
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
     [
@@ -37,7 +41,10 @@ export function getAuthServiceConfigs() {
     LoginComponent,
     LandingComponent,
     HeaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    PageNotFoundComponent,
+    UserComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,9 @@ export function getAuthServiceConfigs() {
     HttpClientModule,
     SocialLoginModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [{
     provide: AuthServiceConfig,
