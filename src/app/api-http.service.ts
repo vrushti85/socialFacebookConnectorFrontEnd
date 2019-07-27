@@ -13,6 +13,7 @@ export class ApiHttpService {
   }
 
   onSubmitEditProfile(updatedUser) {
+    console.log("updatedUser",updatedUser);
     return this.http.put<any>("http://localhost:5000/api/storeEditedData",{updatedUser});
   }
 }

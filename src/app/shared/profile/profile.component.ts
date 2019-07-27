@@ -21,13 +21,14 @@ export class ProfileComponent implements OnInit {
       'email': new FormControl('', [Validators.email, Validators.required]),
       'dateOfBirth': new FormControl('', Validators.required),
       'city': new FormControl('', Validators.required),
-      'providerId': new FormControl('', Validators.required),
+      'Id': new FormControl('', Validators.required),
     })
     this.userData=JSON.parse(localStorage.getItem('data'));
   }
 
   ngOnInit() {
     console.log("hii");
+    
     this.apiHttpService.onEditProfile(this.userData.id).subscribe((resData) => {
       console.log("response from api profile", resData);
       this.profileData = resData;
@@ -57,15 +58,18 @@ export class ProfileComponent implements OnInit {
     let updateobj = this.profileForm.value;
     console.log(updateobj);
     this.apiHttpService.onSubmitEditProfile(updateobj).subscribe((data)=>{
-      console.log(data);
+      console.log("sumit res",data);
     });
   }
   fetchProfileData() {
+
     this.profileForm.patchValue({
       name: this.profileData['name'],
       email: this.profileData['email'],
-      providerId: this.profileData['providerId']
+      Id: this.profileData['_id']
     });
-    console.log(this.profileData);
+
+    console.log("profile DAta id ",this.profileData['_id']);
+    console.log("profile DAta",this.profileData);
   }
 }

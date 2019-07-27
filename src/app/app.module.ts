@@ -19,6 +19,7 @@ import { ProfileComponent } from './shared/profile/profile.component';
 import { PageNotFoundComponent } from './other/page-not-found/page-not-found.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './home/home.component';
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
     [
@@ -44,7 +45,8 @@ export function getAuthServiceConfigs() {
     ProfileComponent,
     PageNotFoundComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
