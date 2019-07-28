@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class UserService {
-
+  isLoggedIn = false;
   constructor(private socialAuthService: AuthService, private http: HttpClient, private router: Router) { }
 
   public socialSignIn(socialPlatform: string) {
@@ -23,13 +23,11 @@ export class UserService {
     }
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
+        this.isLoggedIn = true;
         console.log(socialPlatform + " sign in data : ", userData, typeof (userData));
-        console.log(userData.token);
         localStorage.setItem('data', JSON.stringify(userData));
         this.http.post("http://localhost:5000/api/addDataFromProvider", userData)
           .subscribe(res => {
-            console.log("login res", res);
-            // this.isLoggedIn = true;
             this.router.navigate(['home']);
           });
       });
@@ -37,5 +35,6 @@ export class UserService {
   onLogout() {
     this.socialAuthService.signOut();
     localStorage.clear();
+    this.isLoggedIn = false;
   }
 }

@@ -1,27 +1,25 @@
 <div class="container">
-    <button (click)="onLogout()">Logout</button>
     <div class="test">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
+                <div class="card card-signin">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Login With</h5>
+                        <h5 class="card-title text-center" style="border-style: 2px solid black;">Login With</h5>
                         <div style="text-align: center">
-
                             <div class="social-buttons">
-                                <a class="btn btn-block btn-social btn-google-plus" (click)="socialSignIn('google')">
+                                <a class="btn btn-block btn-social btn-google-plus" style="cursor: pointer;" (click)="socialSignIn('google')">
                                     <i class="fa fa-google-plus"></i> Sign in with Google
                                 </a>
-                                <a class="btn btn-block btn-social btn-facebook" (click)="socialSignIn('facebook')">
+                                <a class="btn btn-block btn-social btn-facebook" style="cursor: pointer;" (click)="socialSignIn('facebook')">
                                     <i class="fa fa-facebook"></i> Sign in with Facebook
                                 </a>
-                                <a class="btn btn-block btn-social btn-github">
+                                <a class="btn btn-block btn-social btn-github" style="cursor: pointer;">
                                     <i class="fa fa-github"></i> Sign in with GitHub
                                 </a>
-                                <a class="btn btn-block btn-social btn-bitbucket">
+                                <a class="btn btn-block btn-social btn-bitbucket" style="cursor: pointer;">
                                     <i class="fa fa-bitbucket"></i> Sign in with Bitbucket
                                 </a>
-                                <a class="btn btn-block btn-social btn-twitter" (click)="onTwitter()">
+                                <a class="btn btn-block btn-social btn-twitter" (click)="onTwitter()" style="cursor: pointer;">
                                     <i class="fa fa-twitter"></i> Sign in with Twitter
                                 </a>
                             </div>

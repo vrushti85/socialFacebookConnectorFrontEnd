@@ -8,17 +8,14 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor( private userService:UserService) { }
-
+  constructor( private userService:UserService) { 
+  }
+  // isLoggedIn = this.userService.isLoggedIn;
   ngOnInit() {
   }
 
   socialSignIn(socialPlatform: string){
     this.userService.socialSignIn(socialPlatform);
-  }
-
-  onLogout() {
-      this.userService.onLogout();
+    this.userService.isLoggedIn = true;
   }
 }

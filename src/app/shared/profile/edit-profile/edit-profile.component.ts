@@ -16,15 +16,7 @@ export class EditProfileComponent implements OnInit {
   userData:any={};
 
   constructor(private apiHttpService: ApiHttpService, private formBuilder: FormBuilder) { 
-
-    this.profileForm = this.formBuilder.group({
-      'image': new FormControl('', Validators.required),
-      'name': new FormControl('', Validators.required),
-      'email': new FormControl('', [Validators.email, Validators.required]),
-      'dateOfBirth': new FormControl('', Validators.required),
-      'city': new FormControl('', Validators.required),
-      'Id': new FormControl('', Validators.required),
-    })
+    this.intialForm();
     this.userData=JSON.parse(localStorage.getItem('data'));
   }
 
@@ -76,6 +68,20 @@ export class EditProfileComponent implements OnInit {
     console.log("profile DAta",this.profileData);
   }
 
-  }
+  intialForm(){
 
+    this.profileForm = this.formBuilder.group({
+      'image': new FormControl('', Validators.required),
+      'name': new FormControl('', Validators.required),
+      'email': new FormControl('', [Validators.email, Validators.required]),
+      'dateOfBirth': new FormControl('', Validators.required),
+      'city': new FormControl('', Validators.required),
+      'Id': new FormControl('', Validators.required),
+    })
+  }
+  resetForm(){
+    this.intialForm();
+    this.imgURL = '';
+  }
+  }
 
