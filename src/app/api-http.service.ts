@@ -9,11 +9,11 @@ export class ApiHttpService {
   constructor(private http: HttpClient) { }
 
   onEditProfile(body:any) {
-    return this.http.get("http://localhost:5000/api/fetchPprofileEdit/"+body);
+    return this.http.get("http://localhost:5000/api/editprofile/"+body);
   }
 
   onSubmitEditProfile(updatedUser) {
     console.log("updatedUser",updatedUser);
-    return this.http.put<any>("http://localhost:5000/api/storeEditedData",{updatedUser});
+    return this.http.put<any>("http://localhost:5000/api/storeEditProfileData",{updatedUser});
   }
 }

@@ -1,8 +1,15 @@
 .container{
-    display: flex;
+    border: 1px solid black;
     align-items: center;
+    margin-top: 5%;
 }
 h6
 {
     margin-top: 19px
+}
+.text-lg-center{
+    margin-top: 30px;
+}
+form{
+    text-align: center;
 }

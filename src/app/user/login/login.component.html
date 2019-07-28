@@ -7,21 +7,23 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">Login With</h5>
                         <div style="text-align: center">
-                            <div class="text-center social-btn">
-                                <a (click)="socialSignIn('google')" class="btn btn-google btn-block"><i
-                                        class="fa fa-google"></i> Sign in with
-                                    <b>Google</b></a>
-                                <a (click)="socialSignIn('facebook')" class="btn btn-facebook btn-block"><i
-                                        class="fa fa-facebook"></i> Sign in
-                                    with <b>Facebook</b></a>
-                                <a class="btn btn-github btn-block"><i class="fa fa-github"></i> Sign in
-                                    with
-                                    <b>Github</b></a>
-                                <a href="#" class="btn btn-bitbucket btn-block"><i class="fa fa-bitbucket"></i> Sign in
-                                    with <b>Bitbucket</b></a>
-                                <a (click)="onTwitter()" class="btn btn-twitter btn-block"><i class="fa fa-twitter"></i>
-                                    Sign in with
-                                    <b>Twitter</b></a>
+
+                            <div class="social-buttons">
+                                <a class="btn btn-block btn-social btn-google-plus" (click)="socialSignIn('google')">
+                                    <i class="fa fa-google-plus"></i> Sign in with Google
+                                </a>
+                                <a class="btn btn-block btn-social btn-facebook" (click)="socialSignIn('facebook')">
+                                    <i class="fa fa-facebook"></i> Sign in with Facebook
+                                </a>
+                                <a class="btn btn-block btn-social btn-github">
+                                    <i class="fa fa-github"></i> Sign in with GitHub
+                                </a>
+                                <a class="btn btn-block btn-social btn-bitbucket">
+                                    <i class="fa fa-bitbucket"></i> Sign in with Bitbucket
+                                </a>
+                                <a class="btn btn-block btn-social btn-twitter" (click)="onTwitter()">
+                                    <i class="fa fa-twitter"></i> Sign in with Twitter
+                                </a>
                             </div>
                         </div>
                     </div>

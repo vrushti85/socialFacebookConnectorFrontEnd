@@ -1,9 +1,10 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './shared/profile/profile.component';
 import { PageNotFoundComponent } from './other/page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { EditProfileComponent } from './shared/profile/edit-profile/edit-profile.component';
 
   const appRoutes: Routes = [
     {
@@ -22,6 +23,10 @@ import { HomeComponent } from './home/home.component';
     {
       path: "profile",
       component: ProfileComponent,
+    },
+    {
+      path: "editProfile",
+      component: EditProfileComponent,
     },
     {path: '404', component: PageNotFoundComponent},
     {path: '**', redirectTo: '/404'}

@@ -26,7 +26,7 @@ export class UserService {
         console.log(socialPlatform + " sign in data : ", userData, typeof (userData));
         console.log(userData.token);
         localStorage.setItem('data', JSON.stringify(userData));
-        this.http.post("http://localhost:5000/api/resData", userData)
+        this.http.post("http://localhost:5000/api/addDataFromProvider", userData)
           .subscribe(res => {
             console.log("login res", res);
             // this.isLoggedIn = true;

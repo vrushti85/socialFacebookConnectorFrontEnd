@@ -20,6 +20,7 @@ import { PageNotFoundComponent } from './other/page-not-found/page-not-found.com
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
+import { EditProfileComponent } from './shared/profile/edit-profile/edit-profile.component';
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
     [
@@ -43,6 +44,7 @@ export function getAuthServiceConfigs() {
     LandingComponent,
     HeaderComponent,
     ProfileComponent,
+    EditProfileComponent,
     PageNotFoundComponent,
     UserComponent,
     AdminComponent,
