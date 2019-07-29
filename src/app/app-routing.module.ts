@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './user/login/login.component';
-import { ProfileComponent } from './shared/profile/profile.component';
 import { PageNotFoundComponent } from './other/page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
-import { EditProfileComponent } from './shared/profile/edit-profile/edit-profile.component';
+import { EditProfileComponent } from './shared/edit-profile/edit-profile.component';
+import { AuthGuard } from './Auth/auth.guard';
 
   const appRoutes: Routes = [
     {
@@ -19,14 +19,12 @@ import { EditProfileComponent } from './shared/profile/edit-profile/edit-profile
     {
       path:"home",
       component: HomeComponent,
-    },
-    {
-      path: "profile",
-      component: ProfileComponent,
+      canActivate:[AuthGuard]
     },
     {
       path: "editProfile",
       component: EditProfileComponent,
+      canActivate:[AuthGuard]
     },
     {path: '404', component: PageNotFoundComponent},
     {path: '**', redirectTo: '/404'}

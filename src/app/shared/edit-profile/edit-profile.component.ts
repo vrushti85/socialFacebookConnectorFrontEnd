@@ -1,34 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
-import { ApiHttpService } from '../../../api-http.service';
+import { ApiHttpService } from '../../api-http.service';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
- 
+
   public imagePath;
   imgURL: any;
   public message: string;
   profileForm: FormGroup;
   profileData: object = {};
-  userData:any={};
+  userData: any = {};
 
-  constructor(private apiHttpService: ApiHttpService, private formBuilder: FormBuilder) { 
+  constructor(private apiHttpService: ApiHttpService, private formBuilder: FormBuilder) {
     this.intialForm();
-    this.userData=JSON.parse(localStorage.getItem('data'));
+    this.userData = JSON.parse(localStorage.getItem('data'));
   }
 
   ngOnInit() {
-    console.log("hii");
-    
     this.apiHttpService.onEditProfile(this.userData.id).subscribe((resData) => {
       console.log("response from api profile", resData);
       this.profileData = resData;
       this.fetchProfileData();
     }, err => {
-      console.log(err);
+      alert(err);
     });
   }
   preview(files) {
@@ -51,8 +49,8 @@ export class EditProfileComponent implements OnInit {
 
     let updateobj = this.profileForm.value;
     console.log(updateobj);
-    this.apiHttpService.onSubmitEditProfile(updateobj).subscribe((data)=>{
-      console.log("sumit res",data);
+    return this.apiHttpService.onSubmitEditProfile(updateobj).subscribe((data) => {
+      console.log("sumit res", data);
     });
   }
   fetchProfileData() {
@@ -61,14 +59,13 @@ export class EditProfileComponent implements OnInit {
       name: this.profileData['name'],
       email: this.profileData['email'],
       Id: this.profileData['_id'],
-      
     });
 
-    console.log("profile DAta id ",this.profileData['_id']);
-    console.log("profile DAta",this.profileData);
+    console.log("profile DAta id ", this.profileData['_id']);
+    console.log("profile DAta", this.profileData);
   }
 
-  intialForm(){
+  intialForm() {
 
     this.profileForm = this.formBuilder.group({
       'image': new FormControl('', Validators.required),
@@ -79,9 +76,9 @@ export class EditProfileComponent implements OnInit {
       'Id': new FormControl('', Validators.required),
     })
   }
-  resetForm(){
+  resetForm() {
     this.intialForm();
     this.imgURL = '';
   }
-  }
+}
 

@@ -15,5 +15,8 @@ export class HeaderComponent implements OnInit {
   facebookLogIn(){
     this.userService.socialSignIn("facebook");
   }
-
+  logout(){
+    localStorage.removeItem("data");
+    localStorage.clear();
+  }
 }

@@ -12,21 +12,19 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from "angular-6-social-login";
-import { LandingComponent } from './other/landing/landing.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { RouterModule } from '@angular/router';
-import { ProfileComponent } from './shared/profile/profile.component';
 import { PageNotFoundComponent } from './other/page-not-found/page-not-found.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
-import { EditProfileComponent } from './shared/profile/edit-profile/edit-profile.component';
+import { EditProfileComponent } from './shared/edit-profile/edit-profile.component';
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
     [
       {
         id: FacebookLoginProvider.PROVIDER_ID,
-        provider: new FacebookLoginProvider("2392721984317375")
+        provider: new FacebookLoginProvider("2408512382548581")
       },
       {
         id: GoogleLoginProvider.PROVIDER_ID,
@@ -41,9 +39,7 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     LoginComponent,
-    LandingComponent,
     HeaderComponent,
-    ProfileComponent,
     EditProfileComponent,
     PageNotFoundComponent,
     UserComponent,

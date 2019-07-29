@@ -10,12 +10,13 @@ import { UserService } from '../user.service';
 export class LoginComponent implements OnInit {
   constructor( private userService:UserService) { 
   }
-  // isLoggedIn = this.userService.isLoggedIn;
+  isLoggedIn = false;
   ngOnInit() {
   }
 
   socialSignIn(socialPlatform: string){
     this.userService.socialSignIn(socialPlatform);
-    this.userService.isLoggedIn = true;
+    this.isLoggedIn = true;
+    console.log(this.isLoggedIn);
   }
 }
