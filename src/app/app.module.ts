@@ -15,10 +15,10 @@ import {
 import { HeaderComponent } from './shared/header/header.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './other/page-not-found/page-not-found.component';
-import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { EditProfileComponent } from './shared/edit-profile/edit-profile.component';
+
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
     [
@@ -42,7 +42,6 @@ export function getAuthServiceConfigs() {
     HeaderComponent,
     EditProfileComponent,
     PageNotFoundComponent,
-    UserComponent,
     AdminComponent,
     HomeComponent
   ],
@@ -59,8 +58,7 @@ export function getAuthServiceConfigs() {
   providers: [{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
-  }
-  ],
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
